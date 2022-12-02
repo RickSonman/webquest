@@ -5,12 +5,10 @@ window.onload=function()
 	function ShowQuestions(QuestionNumber)
 	{
 		document.querySelector(".question").innerHTML=questions[step]['q'];
-	
-	
 		let answer='';
 		for(let key in questions[step]['a']){
-			answer=answer+`<br><li class="ans" style="font-size:18pt; 	font-family:Book Antiqua, sans-serif;" data-atribut="${key}">${questions[step]['a'][key]}</li>`;
-			
+			answer=answer+`<br><li class="ans" style="font-size:18pt;
+			font-family:Book Antiqua, sans-serif;" data-atribut="${key}">${questions[step]['a'][key]}</li>`;	
 		}
 	document.querySelector(".answer").innerHTML = answer;
 	}
@@ -33,15 +31,12 @@ window.onload=function()
 		}
 		else {ShowQuestions(step)};
         }
-
 		console.log(result);
-		
 	}
-	
 	
     function ShowResult()
 	{
-		let key=Object.keys(result).reduce(function(a,b){return result[a]>result[b] ? a : b; });
+	let key=Object.keys(result).reduce(function(a,b){return result[a]>result[b] ? a : b; });
 	let x =	result[key];
 	
 	if (result[key]>8) {key=answers['r'];}
@@ -59,17 +54,9 @@ window.onload=function()
 	div.style.fontWeight="600";
 	 
 	let img = document.createElement('img');
-    img.src = 'images/' + key['image'];
-    img.classList.add('result-img');
-    document.querySelector('main').appendChild(img);
-	
-	
-	}
-		
-		
-		
-		
-		
-		ShowQuestions(step);
-	
+    	img.src = 'images/' + key['image'];
+    	img.classList.add('result-img');
+    	document.querySelector('main').appendChild(img);
+	}	
+ShowQuestions(step);
 }
